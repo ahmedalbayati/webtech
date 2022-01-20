@@ -1,31 +1,46 @@
 <?php
 
+include_once __DIR__ . '/../config/Settings.php';
+
 /**
  * Abstract functions for working with the database.
  */
 class DB
 {
     /**
-     * Connect to the database using mysqli.
+     * Make a persistent connection to the database using PDO.
      *
-     * @return mysqli
+     * @return PDO
      */
     protected static function connect()
     {
-        return new mysqli("localhost", "root", "", "forum");
+        $dsn = 'mysql:host=' . Settings::DB_HOST . ';dbname=' . Settings::DB_NAME;
+        $username = Settings::DB_USER;
+        $password = Settings::DB_PASS;
+
+        try {
+            return new PDO($dsn, $username, $password, array(PDO::ATTR_PERSISTENT => true));
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            return null;
+        }
     }
 
     /**
      * Fetch each row into an array for a provided table name.
      *
      * @param $table
-     * @return array|mixed
+     * @return array
      */
     public static function getAll($table)
     {
-        $mysqli = self::connect();
-        $result = $mysqli->query("SELECT * FROM $table");
+        $dbh = self::connect();
+        if ($dbh == null) {
+            die();
+        }
 
-        return $result->fetch_all();
+        $rows = $dbh->query("SELECT * FROM $table");
+
+        return $rows->fetchAll();
     }
 }
