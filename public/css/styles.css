@@ -1,0 +1,10 @@
+nav {
+    width: 90%;
+    border: 1px solid black;
+    margin: auto;
+    padding: 10px;
+}
+
+.nav-right {
+    float: right;
+}
