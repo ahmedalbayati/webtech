@@ -1,7 +1,8 @@
-<a href="/login">
-    <button>Log In</button>
-</a>
+<nav>
+    <a href="/"><img src="" alt="" >FORUM NAME</a>
 
-<a href="/register">
-    <button>Sign Up</button>
-</a>
+    <div class="nav-right">
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </div>
+</nav>
