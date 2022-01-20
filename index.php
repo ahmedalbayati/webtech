@@ -13,4 +13,6 @@ spl_autoload_register(function ($file_name) {
     }
 });
 
+session_start();
+
 require_once 'routes.php';

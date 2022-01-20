@@ -12,7 +12,7 @@ class DB
      *
      * @return PDO
      */
-    protected static function connect()
+    private static function connect()
     {
         $dsn = 'mysql:host=' . Settings::DB_HOST . ';dbname=' . Settings::DB_NAME;
         $username = Settings::DB_USER;
@@ -21,26 +21,21 @@ class DB
         try {
             return new PDO($dsn, $username, $password, array(PDO::ATTR_PERSISTENT => true));
         } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
+            print "Error!: " . $e->getMessage();
             return null;
         }
     }
 
-    /**
-     * Fetch each row into an array for a provided table name.
-     *
-     * @param $table
-     * @return array
-     */
-    public static function getAll($table)
+    public static function query($query)
     {
         $dbh = self::connect();
+
+        // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         if ($dbh == null) {
             die();
         }
 
-        $rows = $dbh->query("SELECT * FROM $table");
-
-        return $rows->fetchAll();
+        return $dbh->query($query)->fet;
     }
 }
