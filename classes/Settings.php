@@ -17,7 +17,7 @@ class Settings
      *
      * @var string
      */
-    const DB_NAME = 'forum';
+    const DB_NAME = 'forums';
 
     /**
      * Database user.
