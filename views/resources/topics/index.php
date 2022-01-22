@@ -1,12 +1,17 @@
-<div class="card" style="text-align: center;">
-    <h1>Ask our Community. We're here to help!</h1>
-    <input type="text">
-</div>
+<h1>Need Help?</h1>
 
-<?php foreach ($data as $topic) { ?>
-    <a href="<?php echo '/topic/' . $topic['id'] ?>">
-        <div class="card">
-            topic: <?php echo $topic['name']; ?>
-        </div>
-    </a>
-<?php } ?>
+<div style="margin-left: 30%;margin-right:30%;">
+    <div style="text-align: center;">
+        <h2>First try looking up your question.</h2>
+        <input type="text">
+    </div>
+
+    <h2>Otherwise, create a new question.</h2>
+    <?php foreach ($data as $topic) { ?>
+        <a href="<?php echo '/topic/' . $topic['id'] ?>">
+            <div class="topic-card">
+                <?php echo $topic['name']; ?>
+            </div>
+        </a>
+    <?php } ?>
+</div>
