@@ -1,3 +1,5 @@
+<?php $topics = TopicModel::allTopics(); ?>
+
 <h1>Need Help?</h1>
 
 <div style="margin-left: 30%;margin-right:30%;">
@@ -7,7 +9,7 @@
     </div>
 
     <h2>Otherwise, create a new question.</h2>
-    <?php foreach ($data as $topic) { ?>
+    <?php foreach ($topics as $topic) { ?>
         <a href="<?php echo '/topic/' . $topic['id'] ?>">
             <div class="topic-card">
                 <?php echo $topic['name']; ?>

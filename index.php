@@ -21,8 +21,7 @@ session_start();
  * Users
  */
 Route::get('', function () {
-    $topics = TopicModel::allTopics();
-    Route::render('resources/topics/index', $topics);
+    Route::render('resources/topics/index');
 });
 Route::get('register', function () {
     Route::render('resources/users/register');
@@ -38,6 +37,7 @@ Route::post('/login', function () {
     $password = $_POST['password'];
 
     Auth::login($email, $password);
+
     Route::render('template');
 });
 Route::post('/register', function () {
@@ -53,8 +53,7 @@ Route::post('/register', function () {
  * Topics
  */
 Route::get('topic', function () {
-    $topic = TopicModel::getTopic(explode("/", $_SERVER['REQUEST_URI'])[2]);
-    Route::render('resources/topics/show', $topic);
+    Route::render('resources/topics/show');
 });
 
 /*
@@ -67,8 +66,7 @@ Route::get('thread', function () {
     }
 });
 Route::get('thread', function () {
-    $messages = ThreadModel::getThread(explode("/", $_SERVER['REQUEST_URI'])[2]);
-    Route::render('resources/threads/show', $messages);
+    Route::render('resources/threads/show');
 });
 
 /*

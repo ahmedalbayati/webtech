@@ -45,16 +45,11 @@ class Route
      * Render a specified view to the screen.
      *
      * @param $viewName
-     * @param array $data
      *
      * @return void
      */
-    public static function render($viewName, array $data = [])
+    public static function render($viewName)
     {
-        if (count($data)) {
-            extract($data);
-        }
-
         $path = __DIR__ . '/../views/' . $viewName . '.php';
 
         if (file_exists($path)) {
