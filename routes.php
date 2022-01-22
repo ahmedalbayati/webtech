@@ -1,18 +1,27 @@
 <?php
 
+/*
+ * Users
+ */
 Route::get('', function () {
-     TopicController::index();
+    $topics = TopicModel::allTopics();
+    Route::render('resources/topics/index', $topics);
 });
-
-Route::get('register', function () { Controller::render('resources/users/register'); });
-Route::get('login', function () { Controller::render('resources/users/login'); });
-Route::get('logout', function () { Auth::logout(); });
+Route::get('register', function () {
+    Route::render('resources/users/register');
+});
+Route::get('login', function () {
+    Route::render('resources/users/login');
+});
+Route::get('logout', function () {
+    Auth::logout();
+});
 Route::post('/login', function () {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    Auth::login($email, $password);
-    Controller::render('template');
+     Auth::login($email, $password);
+     Route::render('template');
 });
 Route::post('/register', function () {
     $first_name = $_POST['first_name'];
@@ -23,31 +32,35 @@ Route::post('/register', function () {
     Auth::signup($first_name, $last_name, $email, $password);
 });
 
-
-
+/*
+ * Topics
+ */
 Route::get('topic', function () {
-    TopicController::show(explode("/", $_SERVER['REQUEST_URI'])[2]);
+    $topic = TopicModel::getTopic(explode("/", $_SERVER['REQUEST_URI'])[2]);
+    Route::render('resources/topics/show', $topic);
 });
 
+/*
+ * Threads
+ */
 Route::get('thread', function () {
     if (explode("/", $_SERVER['REQUEST_URI'])[2] == 'create') {
-        Controller::render('resources/threads/create');
+        Route::render('resources/threads/create');
         exit();
     }
 });
-
 Route::get('thread', function () {
-    ThreadController::show(explode("/", $_SERVER['REQUEST_URI'])[2]);
+    $messages = ThreadModel::getThread(explode("/", $_SERVER['REQUEST_URI'])[2]);
+    Route::render('resources/threads/show', $messages);
 });
 
+/*
+ * Messages
+ */
 Route::post('/message', function () {
     $content = $_POST['content'];
     $thread_id = $_POST['thread_id'];
     $user_id = $_POST['user_id'];
 
-    MessageController::create($thread_id, $user_id, $content);
-});
-
-Route::post('/thread', function () {
-
+    MessageModel::create($thread_id, $user_id, $content);
 });
