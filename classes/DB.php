@@ -36,6 +36,6 @@ class DB
             die();
         }
 
-        return $dbh->query($query)->fet;
+        return $dbh->query($query);
     }
 }
