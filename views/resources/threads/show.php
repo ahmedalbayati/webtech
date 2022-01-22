@@ -10,7 +10,7 @@
         <label for="content">Reply</label><br>
 
         <textarea id="content" name="content" rows="4" cols="50"></textarea>
-        <input name="thread_id" type="hidden" value="<?php echo $data[0]['thread_id3'] ?>"/>
+        <input name="thread_id" type="hidden" value="<?php echo $data[0]['thread_id'] ?>"/>
         <input name="user_id" type="hidden" value="<?php echo $_SESSION['user'] ?>"/>
 
         <br>
