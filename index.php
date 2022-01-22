@@ -20,9 +20,6 @@ session_start();
 /*
  * Users
  */
-Route::get('', function () {
-    Route::render('resources/topics/index');
-});
 Route::get('register', function () {
     Route::render('resources/users/register');
 });
@@ -52,6 +49,9 @@ Route::post('/register', function () {
 /*
  * Topics
  */
+Route::get('', function () {
+    Route::render('resources/topics/index');
+});
 Route::get('topic', function () {
     Route::render('resources/topics/show');
 });
@@ -60,13 +60,13 @@ Route::get('topic', function () {
  * Threads
  */
 Route::get('thread', function () {
+    Route::render('resources/threads/show');
+});
+Route::get('thread', function () {
     if (explode("/", $_SERVER['REQUEST_URI'])[2] == 'create') {
         Route::render('resources/threads/create');
         exit();
     }
-});
-Route::get('thread', function () {
-    Route::render('resources/threads/show');
 });
 
 /*
