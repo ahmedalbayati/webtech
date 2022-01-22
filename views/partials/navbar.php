@@ -1,13 +1,13 @@
 <nav>
-    <a href="/"><img src="" alt="" >FORUM NAME</a>
+    <a href="/" class="btn-primary">FORUM NAME</a>
 
     <div class="nav-right">
-        <?php if (isset($_SESSION['user'])) { ?>
-            <a href="/">Profile</a>
-            <a href="/logout">Log out</a>
+        <?php if (Auth::is_logged_in()) { ?>
+            <a href="/" class="btn-primary">Profile</a>
+            <a href="/logout" class="btn-primary">Log out</a>
         <?php } else { ?>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a href="/login" class="btn-primary">Login</a>
+            <a href="/register" class="btn-primary">Register</a>
         <?php } ?>
     </div>
 </nav>

@@ -1,6 +1,6 @@
 <?php $threads = TopicModel::getTopic(explode("/", $_SERVER['REQUEST_URI'])[2]); ?>
 
-<?php if (isset($_SESSION['user'])) { ?>
+<?php if (Auth::is_logged_in()) { ?>
     <a href="/thread/create">
         <div class="card" style="direction: rtl;">
             <h2>new question</h2>

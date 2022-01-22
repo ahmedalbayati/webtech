@@ -6,7 +6,7 @@
     <?php if (isset($messages[0]['content'])) { ?> question: <?php echo $messages[0]['content']; } ?>
 </div>
 
-<?php if (isset($_SESSION['user'])) { ?>
+<?php if (Auth::is_logged_in()) { ?>
 <div class="card">
     <form method="post" action="/message">
         <label for="content">Reply</label><br>
