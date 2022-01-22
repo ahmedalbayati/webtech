@@ -1,8 +1,6 @@
 <?php
 
 require_once 'DB.php';
-require_once __DIR__ . '/../controllers/Controller.php';
-require_once __DIR__ . '/../controllers/TopicController.php';
 
 class Auth
 {
