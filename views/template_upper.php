@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head lang="en">
+<html lang="en">
+    <head>
         <title></title>
 
         <meta charset="UTF-8">
@@ -12,5 +12,3 @@
 
     <body>
         <?php require_once __DIR__ . '/partials/navbar.php'; ?>
-    </body>
-</html>

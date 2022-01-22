@@ -19,8 +19,9 @@ class Route
         $uri_components = explode("/", $_SERVER['REQUEST_URI']);
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && $uri_components[1] == $route) {
-            self::render('template');
+            self::render('template_upper');
             $function->__invoke();
+            self::render('template_lower');
         }
     }
 
