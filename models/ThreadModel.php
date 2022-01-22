@@ -1,7 +1,5 @@
 <?php
 
-include_once __DIR__ . '/../classes/DB.php';
-
 class ThreadModel
 {
     public static function getThread($id)

@@ -1,7 +1,5 @@
 <?php
 
-include_once __DIR__ . '/../classes/DB.php';
-
 class MessageModel
 {
     public static function create($thread_id, $user_id, $content)
