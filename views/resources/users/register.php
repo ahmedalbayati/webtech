@@ -1,7 +1,7 @@
 <div class="card">
     <h1>Register</h1>
 
-    <form method="post" action="register">
+    <form method="post" action="/register">
         <label for="first_name">First Name</label><br>
         <input type="text" id="first_name" name="first_name"><br>
 

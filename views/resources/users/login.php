@@ -1,7 +1,7 @@
 <div class="card">
     <h1>Log In</h1>
 
-    <form method="post" action="login">
+    <form method="post" action="/login">
         <label for="email">E-mail</label><br>
         <input type="email" id="email" name="email"><br>
 
