@@ -39,4 +39,25 @@ class Route
             $function->__invoke();
         }
     }
+
+    /**
+     * Render a specified view to the screen.
+     *
+     * @param $viewName
+     * @param array $data
+     *
+     * @return void
+     */
+    public static function render($viewName, array $data = [])
+    {
+        if (count($data)) {
+            extract($data);
+        }
+
+        $path = __DIR__ . '/../views/' . $viewName . '.php';
+
+        if (file_exists($path)) {
+            require_once $path;
+        }
+    }
 }
