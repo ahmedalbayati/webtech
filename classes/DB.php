@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/../config/Settings.php';
+include_once 'Settings.php';
 
 /**
  * Abstract functions for working with the database.
