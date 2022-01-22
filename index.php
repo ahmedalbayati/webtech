@@ -1,6 +1,8 @@
 <?php
 
-// automatically include the classes and models
+/*
+ * Automatically include models and other classes.
+ */
 spl_autoload_register(function ($file_name) {
     $class_path = __DIR__ . '/classes/' . $file_name . '.php';
     $model_path = __DIR__ . '/models/' . $file_name . '.php';
