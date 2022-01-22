@@ -1,6 +1,8 @@
+/* Navigation Bar */
+
 nav {
+    text-align: left;
     width: 90%;
-    border: 1px solid black;
     margin: auto;
     padding: 10px;
 }
@@ -9,11 +11,60 @@ nav {
     float: right;
 }
 
-.card {
-    border: 1px solid black;
-    padding: 50px;
-    margin-top: 30px;
-    margin-left: 5%;
-    margin-right: 5%;
+/* Components */
+
+a.btn-primary {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
     text-decoration: none;
+
+    background-color: #074EE8;
+    color: aliceblue;
+
+    padding: 5px 20px 5px 20px;
+
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+
+    margin-left: 20px;
+}
+
+.topic-card {
+    border: 1px solid #AAAAAA;
+    width: 185px;
+    height: 77px;
+    margin: 50px;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+
+    /* same as height for vertically centering text */
+    line-height: 77px;
+}
+
+/* Regular Elements */
+
+h1 {
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h2 {
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    margin-top: 65px;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    border: 2px solid #AAAAAA;
+    box-sizing: border-box;
+    width: 667px;
+    height: 48px;
 }
