@@ -30,8 +30,4 @@ class Auth
         $_SESSION = array();
         header("Location: /");
     }
-
-    public static function getFullName() {
-
-    }
 }
