@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Global settings for the webapp.
+ * Global settings that are used throughout the webapp.
  */
 class Settings
 {

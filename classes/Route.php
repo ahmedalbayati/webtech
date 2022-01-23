@@ -1,20 +1,37 @@
 <?php
 
 /**
- * Functions for working with routes.
+ * This class contains functions that make it easy for us to handle different
+ * types of requests inside our actual router ('index.php').
  */
 class Route
 {
     /**
-     * Runs a function if the URL matches the specified route.
-     * It should also be a GET request.
+     * Render a specified view to the screen.
      *
-     * @param $route
+     * @param string $viewName
+     *
+     * @return void
+     */
+    public static function render(string $viewName)
+    {
+        $path = __DIR__ . '/../views/' . $viewName . '.php';
+
+        if (file_exists($path)) {
+            require_once $path;
+        }
+    }
+
+    /**
+     * Executes a specified function between rendering 'template_upper' and 'template_lower'.
+     * This is done if it's a GET request and the URL matches the specified route.
+     *
+     * @param string $route
      * @param $function
      *
      * @return void
      */
-    public static function get($route, $function)
+    public static function get(string $route, $function)
     {
         $uri_components = explode("/", $_SERVER['REQUEST_URI']);
 
@@ -26,34 +43,17 @@ class Route
     }
 
     /**
-     * Runs a function if the URL matches the specified route.
-     * It should also be a POST request.
+     * Executes a function if it's a POST request and the URL matches the specified route.
      *
-     * @param $route
+     * @param string $route
      * @param $function
      *
      * @return void
      */
-    public static function post($route, $function)
+    public static function post(string $route, $function)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == $route) {
             $function->__invoke();
-        }
-    }
-
-    /**
-     * Render a specified view to the screen.
-     *
-     * @param $viewName
-     *
-     * @return void
-     */
-    public static function render($viewName)
-    {
-        $path = __DIR__ . '/../views/' . $viewName . '.php';
-
-        if (file_exists($path)) {
-            require_once $path;
         }
     }
 }

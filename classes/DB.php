@@ -1,16 +1,18 @@
 <?php
 
 /**
- * Abstract functions for working with the database.
+ * This class makes it easier for us to work with PDO.
+ * PDO is an interface PHP provides, that allows us to interact with our database.
  */
 class DB
 {
     /**
-     * Make a persistent connection to the database using PDO.
+     * Make a persistent connection to the database.
+     * The credentials are provided by the 'Settings' class.
      *
      * @return PDO
      */
-    private static function connect()
+    private static function connect(): ?PDO
     {
         $dsn = 'mysql:host=' . Settings::DB_HOST . ';dbname=' . Settings::DB_NAME;
         $username = Settings::DB_USER;
@@ -24,16 +26,23 @@ class DB
         }
     }
 
-    public static function query($query)
+    /**
+     * Execute a SQL query.
+     *
+     * @param string $query
+     *
+     * @return false|PDOStatement|void
+     */
+    public static function query(string $query)
     {
-        $dbh = self::connect();
+        $connection = self::connect();
 
         // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if ($dbh == null) {
+        if ($connection == null) {
             die();
         }
 
-        return $dbh->query($query);
+        return $connection->query($query);
     }
 }
