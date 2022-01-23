@@ -1,7 +1,7 @@
 <div class="card">
     <h1>new question</h1>
 
-    <form method="post" action="thread">
+    <form method="post" action="/thread">
         <label for="first_name">subject</label><br>
         <input type="text" id="first_name" name="first_name"><br><br>
 
