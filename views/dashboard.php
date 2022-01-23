@@ -8,8 +8,14 @@
         <a href="#" onclick="ajaxSwitchPage('approve-messages', 'page');">approve messages</a>
     </li>
     <li class="nav-vertical-item">
-        <a href="#" onclick="ajaxSwitchPage('forum-settings', 'page');"">forum settings</a>
+        <a href="#" onclick="ajaxSwitchPage('forum-settings', 'page');">forum settings</a>
     </li>
 </ul>
 
 <div id="page"></div>
+
+<script>
+    window.onload = function () {
+        ajaxSwitchPage('edit-topics', 'page');
+    }
+</script>
