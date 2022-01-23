@@ -79,6 +79,9 @@ Route::get('thread', function () {
         Route::render('resources/threads/create');
     }
 });
+Route::post('/thread', function() {
+    echo 'please edit Route::post(\'/thread\') in index.php';
+});
 
 /*
  * Handle requests related to the 'messages' resource.
