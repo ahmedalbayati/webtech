@@ -56,4 +56,13 @@ class Route
             $function->__invoke();
         }
     }
+
+    public static function ajax(string $route, $viewName)
+    {
+        $uri_components = explode("/", $_SERVER['REQUEST_URI']);
+
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && $uri_components[1] == $route) {
+            self::render($viewName);
+        }
+    }
 }
