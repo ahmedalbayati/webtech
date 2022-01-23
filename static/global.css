@@ -1,3 +1,26 @@
+/* Regular Elements */
+
+h1 {
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h2 {
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    margin-top: 65px;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    border: 2px solid #AAAAAA;
+    box-sizing: border-box;
+}
+
 /* Navigation Bar */
 
 nav {
@@ -39,7 +62,7 @@ nav {
     display: block;
 }
 
-/* Components */
+/* User Components */
 
 a.btn-primary {
     -webkit-appearance: button;
@@ -59,7 +82,7 @@ a.btn-primary {
     margin-left: 20px;
 }
 
-.topic-card {
+.index-topic-card {
     border: 1px solid #AAAAAA;
     width: 185px;
     height: 77px;
@@ -72,34 +95,31 @@ a.btn-primary {
     line-height: 77px;
 }
 
-.dashboard-topic {
-    width: 1377px;
+/* Admin Components */
+
+.edit-topic-card {
+    width: 50%;
     height: 85px;
     border: 2px solid #AAAAAA;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 46px;
 }
 
-/* Regular Elements */
-
-h1 {
-    font-family: 'Noto Sans', sans-serif;
-    text-align: center;
-    margin-top: 50px;
+.edit-topic-card input {
+    margin-top: 26px;
+    margin-bottom: 26px;
+    margin-left: 23px;
+    height: 33px;
 }
 
-h2 {
-    font-family: 'Noto Sans', sans-serif;
-    text-align: center;
-    margin-top: 65px;
-}
-
-a {
-    text-decoration: none;
-}
-
-input {
+.edit-topic-plus {
+    height: 85px;
+    width: 85px;
     border: 2px solid #AAAAAA;
     box-sizing: border-box;
-    width: 667px;
-    height: 48px;
+    margin: auto;
+    text-align: center;
+    padding-top: 18px;
 }
