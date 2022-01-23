@@ -11,7 +11,7 @@
                 <a>Profile</a><br>
 
                 <?php if (Auth::is_admin()) { ?>
-                <a>Dashboard</a><br>
+                <a href="/dashboard">Dashboard</a><br>
                 <?php } ?>
 
                 <a href="/logout">Log out</a>
