@@ -75,7 +75,9 @@ Route::get('thread', function () {
     }
 });
 Route::get('thread', function () {
-    Route::render('resources/threads/create');
+    if (explode("/", $_SERVER['REQUEST_URI'])[2] == 'create') {
+        Route::render('resources/threads/create');
+    }
 });
 
 /*
