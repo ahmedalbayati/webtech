@@ -1,7 +1,5 @@
 <?php
 
-require_once 'DB.php';
-
 class Auth
 {
     public static function signup($first_name, $last_name, $email, $password)
