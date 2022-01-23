@@ -18,7 +18,7 @@ spl_autoload_register(function ($file_name) {
 session_start();
 
 /*
- * Users
+ * Handle requests related to the 'users' resource.
  */
 Route::get('register', function () {
     Route::render('resources/users/register');
@@ -47,7 +47,17 @@ Route::post('/register', function () {
 });
 
 /*
- * Topics
+ * Handle requests related to 'users' who are administrators.
+ */
+Route::get('dashboard', function () {
+    Route::render('dashboard');
+});
+Route::ajax('approve-messages', 'admin/approve_messages');
+Route::ajax('edit-topics', 'admin/edit_topics');
+Route::ajax('forum-settings', 'admin/forum_settings');
+
+/*
+ * Handle requests related to the 'topics' resource.
  */
 Route::get('', function () {
     Route::render('resources/topics/index');
@@ -57,20 +67,19 @@ Route::get('topic', function () {
 });
 
 /*
- * Threads
+ * Handle requests related to the 'threads' resource.
  */
 Route::get('thread', function () {
-    Route::render('resources/threads/show');
+    if (explode("/", $_SERVER['REQUEST_URI'])[2] != 'create') {
+        Route::render('resources/threads/show');
+    }
 });
 Route::get('thread', function () {
-    if (explode("/", $_SERVER['REQUEST_URI'])[2] == 'create') {
-        Route::render('resources/threads/create');
-        exit();
-    }
+    Route::render('resources/threads/create');
 });
 
 /*
- * Messages
+ * Handle requests related to the 'messages' resource.
  */
 Route::post('/message', function () {
     $content = $_POST['content'];
