@@ -35,4 +35,15 @@ class Auth
     {
         return isset($_SESSION['user']);
     }
+
+    public static function is_admin()
+    {
+        if (!self::is_logged_in()) return false;
+
+        $id = $_SESSION['user'];
+        $query = "SELECT * FROM users WHERE id='$id'";
+        $user = DB::query($query)->fetchAll();
+
+        return $user[0]['is_admin'];
+    }
 }
