@@ -29,6 +29,16 @@ nav {
     border-radius: 4px;
 }
 
+.nav-vertical {
+    list-style-type: none;
+    width: 316px;
+}
+
+.nav-vertical-item {
+    padding: 8px 16px;
+    display: block;
+}
+
 /* Components */
 
 a.btn-primary {
@@ -60,6 +70,13 @@ a.btn-primary {
 
     /* same as height for vertically centering text */
     line-height: 77px;
+}
+
+.dashboard-topic {
+    width: 1377px;
+    height: 85px;
+    border: 2px solid #AAAAAA;
+    box-sizing: border-box;
 }
 
 /* Regular Elements */
